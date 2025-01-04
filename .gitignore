@@ -1,0 +1,45 @@
+# Virtual environment
+venv/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+__MACOSX/
+
+# Django settings
+*.secret_key
+*.db
+
+# Logs
+*.log
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+
+# Static files (collected static)
+# static/
+
+# Media files (user-uploaded content)
+# media/
+
+# Environment variables
+.env
+
+# Database
+db.sqlite3
+
+# Migrations folder
+migrations/
+
+# API Keys
+*.api
+
+# Folders
+paapi5-code-snippets/
+paapi5-example/
+
+deployed/

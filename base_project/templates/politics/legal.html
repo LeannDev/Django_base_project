@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+{% block meta_description %}{{meta_description}}{% endblock %}
+{% block meta_robots %}noindex, nofollow{% endblock %}
+{% block canonical %}{% url 'legal' %}{% endblock %}
+{% block social_title %}{{social_title}}{% endblock %}
+{% block social_description %}{{social_description}}{% endblock %}
+{% block social_url %}{% url 'legal' %}{% endblock %}
+{% block site_site_name %}{{site}}{% endblock %}
+{% block modified_time %}{% endblock %}
+{% block social_img %}{{image}}{% endblock %}
+{% block twitter_title %}{{title}}{% endblock %}
+{% block twitter_description %}{{social_description}}{% endblock %}
+{% block twitter_image %}{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+<h1>Legal Notice</h1>
+
+<h2>Purpose</h2>
+<p>
+This Legal Notice regulates the rights and obligations of <strong>{{site}}</strong> (hereinafter referred to as "the Website") and its users, regarding access, browsing and use of this Website. <strong>{{site}}</strong> reserves the right to modify the content of this Website without prior notice. The version published at the time of browsing shall be applicable.
+</p>
+
+<h2>Access to the Website</h2>
+<p>
+By accessing, browsing, and using this Website, you become a user and expressly accept all the clauses set forth in this Legal Notice, as well as any other specific warnings or clauses established in the different sections for contracting, using services, products, registrations, or sections of the Website.
+</p>
+
+<h2>Intellectual and Industrial Property</h2>
+<p>
+All intellectual and industrial property rights of this Website and its contents (including but not limited to images, sound, audio, video, software, texts, trademarks, logos, color combinations, structure and design)   
+ are owned by <strong>{{site}}</strong> or its licensors. Any reproduction, distribution, public communication, making available to the public, and in general any other form of exploitation, in whole or in part, of the elements   
+ referred to above shall be expressly prohibited without the prior written consent of <strong>{{site}}</strong>.
+</p>
+
+<h2>Links</h2>
+<p>
+This Website may contain links to third-party websites. <strong>{{site}}</strong> is not responsible for the content of these third-party websites or for any actions taken in relation to their privacy or the processing of their personal data.
+</p>
+
+<h2>Limitation of Liability</h2>
+<p>
+<strong>{{site}}</strong> shall not be liable for:
+<ul>
+    <li>The quality of the service, the speed of access, the correct functioning or the availability and continuity of operation of the Website.</li>
+    <li>Any damage that may be caused to the user's equipment by using the Website.</li>
+    <li>Cases in which a third party, breaking the security measures established, accesses the messages or uses them to send computer viruses.</li>
+    <li>The vices and defects of all kinds of content transmitted, disseminated, stored or made available.</li>
+</ul>
+</p>
+
+<h2>Privacy Policy and Data Protection</h2>
+<p>
+<strong>{{site}}</strong> is committed to protecting your privacy. Please refer to our Privacy Policy for detailed information on how we collect, use, and protect your personal   
+ data.
+</p>
+
+<h2>Cookies Policy</h2>
+<p>
+In accordance with the current legislation on the use of cookies, the use of cookies will be treated in accordance with the provisions of the section entitled "Cookies   
+ Policy" which you must read and accept before browsing.
+</p>
+
+<h2>Applicable Law and Jurisdiction</h2>
+<p>
+This Legal Notice is governed by and construed in accordance with the laws of United States. Any dispute arising out of or in connection with this   
+ Legal Notice shall be submitted to the exclusive jurisdiction of the courts of Asheville.
+</p>
+
+<h2>Terms of Use</h2>
+<p>
+By browsing this website, you tacitly accept the terms of use and the privacy policy.
+</p>
+
+{% endblock %}

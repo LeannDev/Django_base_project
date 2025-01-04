@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- meta -->
+	<title>{% if title %}{{ title }}{% else %}abc{% endif %} | {{site}}</title>
+	<meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}Effortlessly convert and format your text online. Capitalize sentences, remove extra spaces, fix commas, and adjust line breaks with our free, easy-to-use text converter tool.{% endif %}" />
+	<meta name="robots" content="{% block meta_robots %}{% endblock %}" />
+	<link rel="canonical" href="https://{{site}}{% block canonical %}{% endblock %}" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{% if title %}{{ title }}{% else %}{% endif %} | {{site}}" />
+	<meta property="og:description" content="{% if meta_description %}{{ meta_description }}{% else %}{% endif %}" />
+	<meta property="og:url" content="https://{{site}}{% block social_url %}{% endblock %}" />
+	<meta property="og:site_name" content="{{site}}" />
+	<meta property="article:modified_time" content="{% block modified_time %}{% endblock %}" />
+	<meta property="og:image" content="https://{{ site }}{% if image %}{{ image }}{% else %}/media/main/brand.webp{% endif %}" />
+	<meta property="og:image:width" content="500" />
+	<meta property="og:image:height" content="500" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@username" />
+    <meta name="twitter:title" content="{% if title %}{{ title }}{% else %}{% endif %} | {{site}}" />
+    <meta name="twitter:description" content="{% if meta_description %}{{ meta_description }}{% else %}{% endif %}" />
+    <meta name="twitter:image" content="https://{{site}}{% if image %}{{ image }}{% else %}/media/main/brand.webp{% endif %}" />
+	<!-- / meta -->
+
+    <!-- icon -->
+    <link rel="icon" type="image/png" href="/media/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/media/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/media/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/media/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#1b1b1b">
+    <!-- /icon -->
+
+    <!-- CCS -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% block css %}{% endblock %}
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+
+</head>
+
+    <body>
+
+    <header>
+        <div class="logo">
+            <a href="{% url 'home' %}">
+            <img loading="lazy" src="/media/main/brand.png" alt="{{brand}}">
+            </a>
+        </div>
+        <div class="brand">
+            <a href="{% url 'home' %}">
+            <span class="full-text">{{brand}}</span>
+            <span class="short-text">{{brand}}</span>
+            <br>
+            {{slogan}}
+            </a>
+        </div>
+        <div class="menu-icon">
+            <div id="menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffa31a" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="18" x2="20" y2="18" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <nav id="menu-links">
+        <div>
+            <ul>
+                <!-- <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Nutrientes y suplementos</a>
+                    <ul class="submenu">
+                        <li><a href="#">Soluciones Nutritivas Básicas</a></li>
+                        <li><a href="#">Crecimiento y Floración</a></li>
+                        <li><a href="#">Nutrientes Orgánicos</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">H</a>
+                    <ul class="submenu">
+                        <li><a href="#">A</a></li>
+                        <li><a href="#">I</a></li>
+                        <li><a href="#">R</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">S</a>
+                    <ul class="submenu">
+                        <li><a href="#">S</a></li>
+                        <li><a href="#">S</a></li>
+                        <li><a href="#">C</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">K</a>
+                    <ul class="submenu">
+                        <li><a href="#">K</a></li>
+                        <li><a href="#">K</a></li>
+                    </ul>
+                </li> -->
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about-us' %}">About us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+    {% block content %}
+    {% endblock %}
+    </main>
+    
+    <footer>
+        <div class="pie">
+            <div class="copy">
+                © <span id="year"></span> - {{site}}
+            </div>
+            <div class="footer-list">
+                <ul>
+                    <li><a href="{% url 'legal' %}" rel="nofollow">Legal Notice</a></li>
+                    <li><a href="{% url 'privacy' %}" rel="nofollow">Privacy Policy</a></li>
+                    <li><a href="{% url 'cookies' %}" rel="nofollow">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-notice" id="cookie-notice">
+        <div class="cookie-img">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#ffa31a"><path d="M21 20.1Q22.3 20.1 23.2 19.2Q24.1 18.3 24.1 17Q24.1 15.7 23.2 14.8Q22.3 13.9 21 13.9Q19.7 13.9 18.8 14.8Q17.9 15.7 17.9 17Q17.9 18.3 18.8 19.2Q19.7 20.1 21 20.1ZM17 30.1Q18.3 30.1 19.2 29.2Q20.1 28.3 20.1 27Q20.1 25.7 19.2 24.8Q18.3 23.9 17 23.9Q15.7 23.9 14.8 24.8Q13.9 25.7 13.9 27Q13.9 28.3 14.8 29.2Q15.7 30.1 17 30.1ZM30 32Q30.85 32 31.425 31.425Q32 30.85 32 30Q32 29.15 31.425 28.575Q30.85 28 30 28Q29.15 28 28.575 28.575Q28 29.15 28 30Q28 30.85 28.575 31.425Q29.15 32 30 32ZM24 44.2Q19.85 44.2 16.175 42.6Q12.5 41 9.75 38.25Q7 35.5 5.4 31.825Q3.8 28.15 3.8 24Q3.8 19.25 5.825 15.175Q7.85 11.1 11.2 8.325Q14.55 5.55 18.9 4.375Q23.25 3.2 27.85 4.15Q27.5 6.4 28.175 8.4Q28.85 10.4 30.25 11.8Q31.65 13.2 33.65 13.85Q35.65 14.5 37.9 14.15Q36.95 17.2 39 19.625Q41.05 22.05 44.15 22.25Q44.55 26.65 43.15 30.625Q41.75 34.6 38.975 37.625Q36.2 40.65 32.35 42.425Q28.5 44.2 24 44.2ZM24 40.8Q31 40.8 35.6 36.225Q40.2 31.65 40.8 24.9Q38.15 23.9 36.5 21.95Q34.85 20 34.45 17.5Q30.45 16.9 27.65 13.975Q24.85 11.05 24.4 7.2Q20.9 7.1 17.75 8.4Q14.6 9.7 12.25 11.975Q9.9 14.25 8.55 17.375Q7.2 20.5 7.2 24Q7.2 31 12.1 35.9Q17 40.8 24 40.8ZM24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Q24.05 23.8 24.05 23.8Z"/></svg>
+        </div>
+        <h3 class="cookie-title">Cookies</h3>
+        <p class="cookies-p">We use our own and third-party cookies to ensure we provide you with the best user experience on our website. By continuing to use the site, you agree to our use of cookies.</p>
+        <button class="btn-cookies" id="cookies-accept">accept</button>
+        <a class="enlace" href="{% url 'cookies' %}" target="_blank" rel="nofollow">Cookie Policy</a>
+    </div>
+    
+    <!-- JS -->
+    <script defer src="{% static 'js/main.js' %}"></script>
+    <script defer src="{% static 'js/cookies.js' %}"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>

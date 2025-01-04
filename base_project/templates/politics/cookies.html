@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+{% block meta_description %}{{meta_description}}{% endblock %}
+{% block meta_robots %}noindex, nofollow{% endblock %}
+{% block canonical %}{% url 'cookies' %}{% endblock %}
+{% block social_title %}{{social_title}}{% endblock %}
+{% block social_description %}{{social_description}}{% endblock %}
+{% block social_url %}{% url 'cookies' %}{% endblock %}
+{% block site_site_name %}{{site}}{% endblock %}
+{% block modified_time %}{% endblock %}
+{% block social_img %}{{image}}{% endblock %}
+{% block twitter_title %}{{title}}{% endblock %}
+{% block twitter_description %}{{social_description}}{% endblock %}
+{% block twitter_image %}{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+<h1>Cookie Policy</h1>
+
+<p>
+    This website uses cookies to improve your user experience. By using our website you consent to all cookies in
+    accordance with  
+    our Cookie Policy.</p>
+
+<h2>What are cookies?</h2>
+
+<p>Cookies are small text files that are placed on  
+    your computer by websites that you visit. They are widely used to make websites work, or work more efficiently, as
+    well as to provide information to the owners of the site.</p>  
+
+
+<h2>How do we use cookies?</h2>
+
+<p>We use cookies to:</p>
+
+<ul>
+    <li>Make our website work as you expect it to.</li>
+    <li>Remember your settings during and between visits.</li>
+    <li>Improve the speed/security of the site.</li>
+    <li>Allow you to share pages with social networks.</li>  
+
+    <li>Continuously improve our website for you.</li>
+</ul>
+
+<h2>Types of cookies we use:</h2>
+
+<ul>
+    <li><strong>Strictly necessary cookies:</strong> These are essential in order to enable you to move around the
+        website and use its features.</li>  
+
+    <li><strong>Performance cookies:</strong> These cookies collect information about how visitors use a website, for
+        instance which pages visitors go to most often,  
+        and if they get error messages from web pages.</li>  
+
+    <li><strong>Functionality cookies:</strong> These cookies allow the website to remember choices you make (such as
+        your user name, language or the region you are in) and provide  
+        more personalized features.</li>
+    <li><strong>Targeting cookies:</strong> These cookies are used to deliver adverts more relevant to you and your
+        interests.</li>
+</ul>
+
+<h2>How to control cookies</h2>
+
+<p>You can control and/or delete cookies as you wish – for details, see aboutcookies.org. You can delete all cookies
+    that  
+    are already on your computer and you can set most browsers to prevent them from being placed. If you do this,
+    however, you may have to manually adjust some preferences every time you visit a site and some services and
+    functionalities  
+    may not work.</p>
+
+<p>For more information on how to manage your cookies settings, visit the following links:</p>
+<ul>
+    <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank"
+            rel="noreferrer noopener nofollow">Google Chrome</a></li>
+    <li><a href="https://support.microsoft.com/es-es/help/17442/windows-internet-explorer-delete-manage-cookies#ie=ie-10"
+            target="_blank" rel="noreferrer   
+ noopener nofollow">Internet Explorer</a></li>
+    <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias?redirectlocale=es&amp;redirectslug=habilitar-y-deshabilitar-cookies-que-los-sitiows-we"
+                target="_blank" rel="noreferrer noopener nofollow">Mozilla Firefox</a></li>
+    <li><a href="https://support.apple.com/es-es/HT201265" target="_blank" rel="noreferrer noopener nofollow">Apple
+            Safari</a></li>
+</ul>
+
+{% endblock %}

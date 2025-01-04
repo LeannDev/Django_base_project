@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+{% block meta_description %}{{meta_description}}{% endblock %}
+{% block meta_robots %}noindex, nofollow{% endblock %}
+{% block canonical %}{% url 'privacy' %}{% endblock %}
+{% block social_title %}{{social_title}}{% endblock %}
+{% block social_description %}{{social_description}}{% endblock %}
+{% block social_url %}{% url 'privacy' %}{% endblock %}
+{% block site_site_name %}{{site}}{% endblock %}
+{% block modified_time %}{% endblock %}
+{% block social_img %}{{image}}{% endblock %}
+{% block twitter_title %}{{title}}{% endblock %}
+{% block twitter_description %}{{social_description}}{% endblock %}
+{% block twitter_image %}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block content %}
+<h1>Privacy Policy</h1>
+
+<p>This Privacy Policy sets out the terms under which <b><em>{{site}}</em></b> uses and protects the information that is provided by its users when using its website. This company is committed to the security of its users' data. When we ask you to fill in personal information fields, which can be used to identify you, we do so ensuring that it will only be used in accordance with the terms of this document. However, this Privacy Policy may change over time or be updated, so we recommend and emphasize that you review this page periodically to ensure that you agree with such changes.</p>
+
+<h2>Information We Collect</h2>
+<p>Our website may collect personal information such as: Name, contact information, such as your email address, and demographic information. Specific information may also be required to process an order, make a delivery or invoice.</p>
+
+<h2>Use of the Information Collected</h2>
+<p>Our website uses the information to provide the best possible service. In particular to keep a record of users, of orders if applicable, to improve our products and services. Periodically, emails may be sent through our site with special offers, new products and other advertising information that we consider relevant to you or that may benefit you. These emails will be sent to the address you provide and can be canceled at any time.</p>
+
+<p><b><em>{{site}}</em></b> is highly committed to fulfilling its commitment to keeping your information secure. We use the most advanced systems and update them constantly to ensure that there is no unauthorized access.</p>
+
+<h2>Cookies</h2>
+<p>A cookie refers to a file that is sent with the purpose of requesting permission to be stored on your computer. By accepting this file, it is created and then used to have information about web traffic, and also facilitates future visits to a recurring website. Another function of cookies is that with them, websites can recognize you individually and therefore provide you with the best personalized service.</p>
+
+<p>Our website uses cookies to identify the pages that are visited and their frequency. This information is used solely for statistical analysis and then the information is permanently deleted. You can delete cookies from your computer at any time. However, cookies help provide a better service from websites, they do not give access to information on your computer or you, unless you want to and provide it directly. You can accept or deny the use of cookies, however most browsers accept cookies automatically as it serves to provide a better web service. You can also change your computer settings to decline cookies. If you decline, you may not be able to use some of our services.</p>
+
+<h2>Links to Third Parties</h2>
+<p>This website may contain links to other sites that may be of interest to you. Once you click on these links and leave our website, we no longer have control over the site to which you are redirected, therefore we are not responsible for the terms, privacy or protection of your data on those other sites. Such sites are subject to their own privacy policies, so it is advisable to consult them to confirm that you agree with their privacy policies.</p>
+
+<h2>Control of Your Personal Information</h2>
+<p>At any time you can restrict the collection or use of the personal information that is provided to our website. Each time you are asked to fill out a form, such as user registration, you can check or uncheck the option to receive information by email. In the event that you have checked the option to receive our newsletter or advertising you can cancel it at any time.</p>
+
+<p>This company will not sell, assign or distribute the personal information that is collected without your consent, except as required by a judge with a court order.</p>
+
+<p><b><em>{{site}}</em></b> reserves the right to change the terms of this Privacy Policy at any time.</p>
+
+{% endblock %}

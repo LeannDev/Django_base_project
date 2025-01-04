@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
+{% block canonical %}{% url 'home' %}{% endblock %}
+{% block social_url %}{% url 'home' %}{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+<h1>About Us</h1>
+
+<p>
+    At {{site}} Total, we're dedicated to providing you with the most powerful and intuitive tools for processing text, numbers, and data. Our suite of online tools is designed to simplify complex tasks, boost productivity, and deliver accurate results every time.
+</p>
+
+<h2>Our Mission</h2>
+
+<p>
+    Our mission is to empower users of all levels with the tools they need to accomplish their goals efficiently. Whether you're a student, researcher, or professional, our platform offers a comprehensive solution for your computational needs.
+</p>
+
+<h2>What We Offer</h2>
+
+<h3>Powerful Text Processing Tools</h3>
+<ul>
+    <li><b>Text Analysis:</b> Extract key insights from your text data with advanced analytics.</li>
+    <li><b>Language Translation:</b> Seamlessly translate text between multiple languages.</li>
+    <li><b>Text Summarization:</b> Condense lengthy documents into concise summaries.</li>
+</ul>
+
+<h3>Versatile Numerical Calculations</h3>
+<ul>
+    <li><b>Scientific Calculator:</b> Perform complex calculations with ease.</li>
+    <li><b>Data Analysis:</b> Analyze and visualize your data using powerful statistical tools.</li>
+    <li><b>Unit Conversion:</b> Quickly convert between different units of measurement.</li>
+</ul>
+
+<h3>Customizable Calculators</h3>
+<ul>
+    <li><b>Create Your Own:</b> Build custom calculators tailored to your specific needs.</li>
+    <li><b>Share and Collaborate:</b> Share your calculators with others and collaborate on projects.</li>
+</ul>
+
+<h2>Why Choose Us?</h2>
+<ul>
+    <li><b>User-friendly Interface:</b> Our tools are designed with simplicity in mind.</li>
+    <li><b>Accuracy and Reliability:</b> You can trust our tools to deliver precise results.</li>
+    <li><b>Continuous Improvement:</b> We're always working to enhance our platform and add new features.</li>
+</ul>
+
+<h2>Get Started Today</h2>
+<p>
+    Explore our suite of tools and discover how {{site}} Total can help you streamline your workflow.
+</p>
+
+{% endblock %}
