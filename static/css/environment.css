@@ -1,0 +1,34 @@
+:root {
+    color-scheme: dark;
+
+    --primary-color: #0b0e0f;
+    --secondary-color: #00e701;
+    --accent-color: #aab0b6;
+    --background-color: #24272c;
+
+    /* Typografy */
+    --text-color: #212529;
+    --text-light: #ffffff;
+    --text-muted: #6c757d;
+    --text-green: #00a650;
+
+    /* Bordes */
+    --border-radius: 8px;
+    --border-color: #d8dae0;
+    --border-dark: #343a40;
+
+    /* Sadows */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 6px 10px rgba(0, 0, 0, 0.15);
+
+    /* buttons */
+    --btn-details: #007bff;
+    --btn-details-hover: #0056b3;
+    --btn-update: #ffc107;
+    --btn-update-hover: #ffaa00;
+    --btn-delete: #dc3545;
+    --btn-delete-hover: #bd2130;
+    --btn-create: #28a745;
+    --btn-create-hover: #218838;
+    --btn-cancel: #6c757d;
+}

@@ -1,23 +1,9 @@
 {% extends "layout.html" %}
 {% load static %}
 
-{% block title %}{{title}}{% endblock %}
-{% block meta_description %}{{meta_description}}{% endblock %}
-{% block meta_robots %}noindex, nofollow{% endblock %}
-{% block canonical %}{% url 'cookies' %}{% endblock %}
-{% block social_title %}{{social_title}}{% endblock %}
-{% block social_description %}{{social_description}}{% endblock %}
-{% block social_url %}{% url 'cookies' %}{% endblock %}
-{% block site_site_name %}{{site}}{% endblock %}
-{% block modified_time %}{% endblock %}
-{% block social_img %}{{image}}{% endblock %}
-{% block twitter_title %}{{title}}{% endblock %}
-{% block twitter_description %}{{social_description}}{% endblock %}
-{% block twitter_image %}{% endblock %}
+{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
 
-{% block css %}
-
-{% endblock %}
+{% block css %}{% endblock %}
 {% block content %}
 <h1>Cookie Policy</h1>
 

@@ -1,4 +1,5 @@
 import os
+import base64
 from pathlib import Path
 
 from decouple import config, Csv
@@ -12,6 +13,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
+
+# Get the encryption key from environment variables
+# SECURITY WARNING: keep the encryption key used in production secret!
+ENCRYPTION_KEY = config("ENCRYPTION_KEY", default=None)
+
+if ENCRYPTION_KEY is None:
+    raise ValueError("ENCRYPTION_KEY must be set in the environment variables.")
+
+# decode the encryption key
+try:
+    ENCRYPTION_KEY = base64.urlsafe_b64decode(ENCRYPTION_KEY)
+    if len(ENCRYPTION_KEY) != 32:
+        raise ValueError("ENCRYPTION_KEY must be 32 bytes long.")
+except Exception as e:
+    raise ValueError(f"Failed to decode ENCRYPTION_KEY: {e}")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -38,6 +54,8 @@ THIRD_APPS = [
 ]
 
 LOCAL_APPS = [
+    'apps.users.apps.UsersConfig',
+    'apps.emails.apps.EmailsConfig',
 ]
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
@@ -52,14 +70,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'base_project.urls'
+ROOT_URLCONF = 'core.urls'
 
-TEMPLATE_ROOT = os.path.join(BASE_DIR, 'base_project/templates')
+TEMPLATE_ROOT = os.path.join(BASE_DIR, 'core/templates')
+USERS_TEMPLATE = os.path.join(BASE_DIR, 'apps/users/templates')
+EMAILS_TEMPLATE = os.path.join(BASE_DIR, 'apps/emails/templates')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_ROOT],
+        'DIRS': [TEMPLATE_ROOT, USERS_TEMPLATE, EMAILS_TEMPLATE],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +92,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'base_project.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
@@ -133,9 +153,62 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom user
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.User'
+
+# login and logout
+# LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # enviroments
 CURRENT_SITE = config('CURRENT_SITE', default='localhost')
 BRAND = config('BRAND', default='my business')
 SLOGAN = config('SLOGAN', default='my slogan')
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)  # TLS port
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)  # TLS
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST
+
+########################
+### Loggings configs ###
+########################
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'app.log'),
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': { # all django logs
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+        'core': {  # all logs from the core
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+    },
+}

@@ -1,10 +1,4 @@
-:root {
-    color-scheme: dark;
-    --primary-color: #0b0e0f;
-    --secondary-color: #00e701;
-    --accent-color: #aab0b6;
-    --background-color: #24272c;
-}
+@import url('environment.css');
 
 body {
     font-family: Arial, sans-serif;
@@ -319,6 +313,7 @@ footer .pie .footer-list ul a {
 
 .cookie-notice .cookie-img {
     display: none;
+    color: var(--secondary-color);
 }
 
 .cookie-notice .cookie-title {

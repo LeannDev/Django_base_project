@@ -1,0 +1,140 @@
+@import url('environment.css');
+
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--background-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form p {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+}
+
+.form label {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form textarea {
+    resize: none;
+    field-sizing: content;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* Contenedor para alinear los botones */
+.form-buttons {
+    display: flex;
+    gap: 8px; /* Espacio entre los botones */
+    justify-content: flex-end; /* Opcional, para alinearlos a la derecha */
+}
+
+.btn-submit {
+    padding: 10px 16px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+/* Botón de cancelar igual en forma al submit */
+.btn-cancel {
+    padding: 7px 16px;
+    background-color: var(--btn-cancel); /* Gris claro o color secundario */
+    color: var(--text-light); /* Texto gris oscuro */
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-delete {
+    padding: 10px 16px;
+    background-color: var(--btn-delete);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.btn-create {
+    padding: 10px 16px;
+    background-color: var(--btn-create);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.form input[type="file"]::file-selector-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--text-light);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+/* Estilo general para listas de errores de Django */
+.errorlist {
+    color: #dc3545; /* Rojo Bootstrap */
+    margin: 5px 0 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.875rem; /* Tamaño pequeño */
+}
+
+/* Si quieres que los errores estén dentro de divs, como cuando se recorren los errores */
+.field-error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+/* Opcional: marcar el campo con error */
+input.is-invalid, textarea.is-invalid, select.is-invalid {
+    border-color: #dc3545;
+}
+
+/* También para los checkbox */
+input[type="checkbox"].is-invalid {
+    outline: 1px solid #dc3545;
+}
