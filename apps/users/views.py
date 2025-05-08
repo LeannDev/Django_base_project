@@ -1,6 +1,7 @@
 import logging
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, UpdateView
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib.auth import login, logout
 from django.urls import reverse
@@ -11,7 +12,8 @@ from django.utils.http import urlsafe_base64_decode
 from django.http import HttpResponse
 from django.contrib.auth import login, get_user_model
 
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ProfileForm
+from .models import Profile
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
@@ -69,8 +71,31 @@ def account_activation(request, uidb64, token):
 
     if user and default_token_generator.check_token(user, token):
         user.is_active = True
+        user.email_verified = True
         user.save()
         login(request, user)
         return redirect('home')
     else:
         return HttpResponse('Activation link is invalid!')
+    
+class ProfileEditView(LoginRequiredMixin, UpdateView):
+    template_name = 'registration/profile_edit.html'
+    form_class = ProfileForm
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['brand'] = settings.BRAND
+        context['slogan'] = settings.SLOGAN
+        context['site'] = settings.CURRENT_SITE
+        context['slug'] = reverse('profile_edit')
+        context['title'] = 'Edit Profile'
+        context['meta_description'] = 'Edit Profile'
+        context['social_title'] = 'Edit Profile'
+        context['social_description'] = 'Edit Profile'
+        context['image'] = '/media/main/brand.webp'
+        
+        return context
+
+    def get_object(self):
+        return Profile.objects.get_or_create(user=self.request.user)[0]

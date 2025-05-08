@@ -10,6 +10,7 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth import get_user_model
 
 from apps.emails.services import email_sender
+from .models import Profile
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
@@ -23,6 +24,10 @@ def after_user_created(sender, instance, created, **kwargs):
         token = default_token_generator.make_token(instance)
         link = f"https://{settings.CURRENT_SITE}{reverse('account_activation', kwargs={'uidb64': uid, 'token': token})}"
 
+        # Create a profile for the user
+        Profile.objects.get_or_create(user=instance)
+
+        # Send the email confirmation
         try:
             email_sender(
                 subject=f"Welcome to {settings.BRAND}",

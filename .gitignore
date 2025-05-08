@@ -24,7 +24,7 @@ __MACOSX/
 # static/
 
 # Media files (user-uploaded content)
-# media/
+media/users/*
 
 # Environment variables
 .env

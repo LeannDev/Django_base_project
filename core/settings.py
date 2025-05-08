@@ -56,6 +56,7 @@ THIRD_APPS = [
 LOCAL_APPS = [
     'apps.users.apps.UsersConfig',
     'apps.emails.apps.EmailsConfig',
+    'apps.images.apps.ImagesConfig',
 ]
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
