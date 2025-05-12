@@ -4,19 +4,17 @@
 {% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
 
 {% block css %}<link rel="stylesheet" href="{% static 'css/forms.css' %}">{% endblock %}
-
 {% block content %}
-<h1>Create account</h1>
+<h1>Edit profile</h1>
 
 <section class="form-section">
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Create</button>
+    <button type="submit">Save changes</button>
     <div class="form-footer">
-      <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
-    </div>
-</form>
+      <p><a href="{% url 'password_change' %}">Change password</a></p>
+  </form>
 </section>
 
 {% endblock %}

@@ -1,10 +1,10 @@
 :root {
-    color-scheme: dark;
+    /* color-scheme: dark; */
 
     --primary-color: #0b0e0f;
-    --secondary-color: #00e701;
-    --accent-color: #aab0b6;
-    --background-color: #24272c;
+    --secondary-color: #aab0b6;
+    --accent-color: #00e701;
+    --background-color: #f9f9f9;
 
     /* Typografy */
     --text-color: #212529;
@@ -21,6 +21,9 @@
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --box-shadow-hover: 0 6px 10px rgba(0, 0, 0, 0.15);
 
+    /* Cards */
+    --card-bg: #ffffff;
+
     /* buttons */
     --btn-details: #007bff;
     --btn-details-hover: #0056b3;
@@ -31,4 +34,7 @@
     --btn-create: #28a745;
     --btn-create-hover: #218838;
     --btn-cancel: #6c757d;
+
+    /* Fonts */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

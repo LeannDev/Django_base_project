@@ -12,8 +12,9 @@ sitemaps = {
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls,),
     path('accounts/', include('apps.users.urls')),  # Include user-related URLs
+    path('profiles/', include('apps.profiles.urls')),  # Include profile-related URLs
     path('about-us/', AboutUsView.as_view(), name='about-us'),
     path('cookies/', CookiesView.as_view(), name='cookies'),
     path('legal/', LegalView.as_view(), name='legal'),

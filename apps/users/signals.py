@@ -1,5 +1,5 @@
 import logging
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.conf import settings
 from django.urls import reverse
@@ -10,10 +10,19 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth import get_user_model
 
 from apps.emails.services import email_sender
-from .models import Profile
+from apps.profiles.models import Profile
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
+
+
+@receiver(pre_save, sender=User)
+def normalize_username(sender, instance, **kwargs):
+    """
+    Normalize the username to lowercase before saving.
+    """
+    if instance.username:
+        instance.username = instance.username.lower()
 
 @receiver(post_save, sender=User)
 def after_user_created(sender, instance, created, **kwargs):

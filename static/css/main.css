@@ -13,7 +13,7 @@ header {
     grid-template-columns: max-content max-content auto;
     align-items: center;
     background-color: var(--primary-color);
-    border-top: 3px solid var(--secondary-color);
+    border-top: 3px solid var(--accent-color);
     padding: .5rem 0;
     position: fixed;
     bottom: 0;
@@ -39,7 +39,7 @@ header .brand a {
 }
 
 header span {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     font-size: 1.1rem;
 }
 
@@ -56,6 +56,7 @@ header img {
 header .menu-icon {
     text-align: end;
     margin-right: .5rem;
+    color: var(--accent-color);
 }
 
 .short-text {
@@ -91,7 +92,7 @@ nav ul li {
 
 nav ul a {
     text-decoration: none;
-    color: var(--accent-color);
+    color: var(--secondary-color);
     font-weight: bold;
     padding: .5rem 1rem .35rem .5rem;
     display: block;
@@ -128,7 +129,7 @@ nav ul a {
 
 /* Main */
 main {
-    min-height: calc(100vh - 8rem);
+    min-height: calc(100vh - 5rem);
     margin: 0 .4rem;
     font-family: "Titillium Web", sans-serif;
     font-weight: 500;
@@ -170,7 +171,7 @@ ul, ol {
     font-size: 1.2rem;
 }
 
-textarea {
+/* textarea {
     resize: none;
     width: 100%;
     min-height: 200px;
@@ -235,7 +236,7 @@ label {
 }
 
 .download {
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
     color: #292929;
     width: 15rem;
 }
@@ -261,7 +262,7 @@ input[type=file]::file-selector-button {
     transition: all 0.5s;
     cursor: pointer;
     margin: .5rem;
-}
+} */
 
 /* FOOTER */
 footer {
@@ -270,7 +271,7 @@ footer {
     text-align: center;
     padding: 1rem 1rem 5rem 1rem;
     margin-top: 1rem;
-    border-top: 3px solid var(--secondary-color);
+    border-top: 3px solid var(--accent-color);
 }
 
 footer .pie {
@@ -300,56 +301,56 @@ footer .pie .footer-list ul a {
 
 .cookie-notice {
     display: none;
-    background: var(--primary-color);
+    background: var(--card-bg);
     width: 100%;
     line-height: 150%;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     position: fixed;
     bottom: 20px;
     z-index: 100;
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     text-align: center;
 }
 
 .cookie-notice .cookie-img {
     display: none;
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 .cookie-notice .cookie-title {
     margin-bottom: 15px;
-    font-family: 'Work Sans', sans-serif;
-    color: var(--primary-color);
+    font-family: var(--font-family);
+    color: var(--accent-color);
 }
 
 .cookie-notice .cookies-p {
     margin-bottom: 15px;
-    font-family: 'Work Sans', sans-serif;
+    font-family: var(--font-family);
 }
 
 .cookie-notice .btn-cookies {
     width: 100%;
-    background: var(--secondary-color);
+    background: var(--accent-color);
     border: none;
     color: var(--primary-color);
-    font-family: 'Work Sans', sans-serif;
+    font-family: var(--font-family);
     text-align: center;
     padding: 15px 20px;
     font-weight: 700;
     cursor: pointer;
     transition: .3s ease all;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     margin-bottom: 15px;
     font-size: 14px;
 }
 
 .cookie-notice .btn-cookies:hover {
     background: var(--primary-color);
-    color: var(--secondary-color)
+    color: var(--accent-color)
 }
 
 .cookie-notice .enlace {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     text-decoration: none;
     font-size: 14px;
     font-family: 'Work Sans', sans-serif;
@@ -408,7 +409,7 @@ footer .pie .footer-list ul a {
         width: 100%;
         height: 2.5rem;
         text-align: center;
-        border-bottom: 3px solid var(--secondary-color);
+        border-bottom: 3px solid var(--accent-color);
         border-top: none;
     }
 
@@ -428,7 +429,7 @@ footer .pie .footer-list ul a {
     }
 
     nav ul li a:hover {
-        color: var(--secondary-color);
+        color: var(--accent-color);
         background-color: var(--primary-color);
     }
 

@@ -57,6 +57,7 @@ LOCAL_APPS = [
     'apps.users.apps.UsersConfig',
     'apps.emails.apps.EmailsConfig',
     'apps.images.apps.ImagesConfig',
+    'apps.profiles.apps.ProfilesConfig',
 ]
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
@@ -76,11 +77,12 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATE_ROOT = os.path.join(BASE_DIR, 'core/templates')
 USERS_TEMPLATE = os.path.join(BASE_DIR, 'apps/users/templates')
 EMAILS_TEMPLATE = os.path.join(BASE_DIR, 'apps/emails/templates')
+PROFILES_TEMPLATE = os.path.join(BASE_DIR, 'apps/profiles/templates')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_ROOT, USERS_TEMPLATE, EMAILS_TEMPLATE],
+        'DIRS': [TEMPLATE_ROOT, USERS_TEMPLATE, EMAILS_TEMPLATE, PROFILES_TEMPLATE],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -157,7 +159,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 # login and logout
-# LOGIN_URL = 'login'
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -174,6 +176,9 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)  # TLS
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST
+
+# Password reset
+PASSWORD_RESET_TIMEOUT = 60 * 60  # 1 hour
 
 ########################
 ### Loggings configs ###

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'css/profiles.css' %}">{% endblock %}
+
+{% block content %}
+<h1>{{ profile.user.username }}'s profile </h1>
+
+<section class="profile-container">
+  {% if profile.profile_picture %}
+    <div class="profile-picture">
+      <img loading="lazy" src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }} profile picture" width="200" height="200" style="border-radius: 50%; object-fit: cover;">
+    </div>
+  {% else %}
+      <img loading="lazy" src="/media/main/no-fotos.webp" alt="profile picture" width="200" height="200" style="border-radius: 50%; object-fit: cover;">
+    </div>
+  {% endif %}
+
+  <ul>
+    {% if profile.bio %}
+      <li><strong>about me:</strong> {{ profile.bio }}</li>
+    {% endif %}
+    {% if profile.country %}
+      <li><strong>Country:</strong> {{ profile.country }}</li>
+    {% endif %}
+    {% if profile.city %}
+      <li><strong>City:</strong> {{ profile.city }}</li>
+    {% endif %}
+  </ul>
+
+  {% if user.is_authenticated and user == profile.user %}
+  <div class="form-footer">
+    <p><a href="{% url 'profile_edit' %}">Edit profile</a></p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
+
+{% block js %}{% endblock %}
